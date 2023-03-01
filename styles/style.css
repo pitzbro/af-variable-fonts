@@ -1,0 +1,230 @@
+/* VAR */
+
+:root {
+    --clr0: #ccc;
+    --clr1: #2d2d2d;
+    --clr2: #009688;
+    --clr-base: #FFFF70;
+    --clr--1: #ffeb3b;
+
+    /* varaibale fonts */
+    --icon-end: 'TIME' 100;
+    --icon-start: 'TIME' 1;
+}
+
+/* AMSTELVAR */
+
+@font-face {
+    font-family: Amstelvar;
+    src: url('../fonts/amstelvar/amstelvar-roman.ttf');
+    font-stretch: 50% 125%;
+    font-weight: 100 1000;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Amstelvar;
+    src: url("../fonts/amstelvar/amstelvar-italic.ttf");
+    font-stretch: 50% 125%;
+    font-style: italic;
+    font-weight: 100 900;
+}
+
+/* OPEN SANS FONT */
+
+@font-face {
+    font-family: Open;
+    src: url("../fonts/opensans/OpenSans.ttf");
+    font-stretch: 75% 100%;
+    font-weight: 300 800;
+}
+
+/* ZYCON SANS FONT */
+
+@font-face {
+    font-family: Zycon;
+    src: url("../fonts/zycon/Zycon.woff2");
+}
+
+/* WINNER FONT */
+
+@font-face {
+    font-family: Winner;
+    src: url("../fonts/winner/Winner-VF.woff2");
+    font-stretch: 0% 1000%;
+    font-style: oblique -15deg 0deg;
+    font-weight: 1 1000;
+}
+
+/* ANICONS FONT */
+
+@font-face {
+    font-family: AniconColor;
+    src: url("../fonts/anicons/AniconsColorGX.ttf");
+}
+
+@font-face {
+    font-family: Anicon;
+    src: url("../fonts/anicons/AniconsGX.ttf");
+}
+
+::selection {
+    background-color: var(--clr2);
+    color: var(--clr-base)
+}
+
+
+
+body {
+    font-family: Amstelvar;
+    color: var(--clr2);
+    background-color: var(--clr2);
+    margin: 4rem 1rem;
+}
+
+.anicons {
+    font-family: Anicon;
+    word-break: break-all;
+    color: var(--clr-base);
+    background: var(--clr2);
+    font-size: 4rem;
+    padding: 4rem;
+    letter-spacing: 0.8em;
+    line-height: 1.3em;
+}
+
+h1 {
+    color: var(--clr-base);
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 400;
+    font-variation-settings: 'opsz' 100, 'wdth' 110;
+}
+
+hr {
+    margin: 6rem 0 2rem;
+    border: 1px dashed var(--clr-base);
+}
+
+input {
+    font-family: Open;
+    font-size: 1rem;
+    letter-spacing: .06em;
+    border: none;
+    border-bottom: 1px solid var(--clr2);
+    color: var(--clr2);
+    background-color: transparent;
+    text-transform: uppercase;
+    line-height: 1.6em;
+    max-width: 400px;
+
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    font-family: Amstelvar;
+    font-style: italic;
+    color: var(--clr2);
+    font-size: 1rem;
+    text-transform: lowercase;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1rem 4rem;
+    margin: 0 auto 2rem;
+    padding: 6rem clamp(2rem, 10vw, 6rem) 8rem;
+    font-variation-settings: 'opsz' 30, 'wdth' 105;
+    font-size: 1rem;
+    max-width: 850px;
+    background-color: var(--clr-base);
+    box-shadow: 0 1rem 0 #1a695f;
+}
+
+.input-element {
+    display: grid;
+    gap: .6rem;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid transparent;
+
+    transition: box-shadow .4s;
+}
+
+.input-element:has(input:focus) {
+    box-shadow: 0 4px 0 var(--clr2);
+    border-color: var(--clr2);
+}
+
+
+.input-element::before {
+    content: "6";
+    font-family: AniconColor;
+    font-family: Anicon;
+    font-size: 1.6rem;
+    transition: font-variation-settings .6s;
+    font-variation-settings: var(--icon-start);
+}
+
+.input-element.correct::before {
+    font-variation-settings: var(--icon-end);
+}
+
+.input-element label {
+    grid-area: 1 / 1 / 2 / 3;
+    font-size: 1.2rem;
+}
+
+.input-element:has(input[type="password"])::before {
+    content: "m";
+}
+
+.input-element:has(input[type="search"])::before {
+    content: "6";
+}
+
+.input-element:has(input[type="text"])::before {
+    content: ".";
+}
+
+.input-element:has(input[type="phone"])::before {
+    content: "1";
+}
+
+/* ANIMATION */
+
+.animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Zycon;
+    color: var(--clr-base);
+    font-size: 10rem;
+    font-weight: normal;
+    height: 100vh;
+
+    animation: time 1s linear infinite alternate;
+}
+
+@keyframes time {
+    0% {
+        font-variation-settings: 'T1  ' 1 , 'T2  ' 1, 'T3  ' 0;   
+    } 
+    30% {
+        font-variation-settings: 'T1  ' 0 , 'T2  ' 1, 'T3  ' 0;   
+    }
+    50% {
+        font-variation-settings: 'T1  ' 0 , 'T2  ' 0, 'T3  ' 0;   
+    }
+    70% {
+        font-variation-settings: 'T1  ' 0 , 'T2  ' 0, 'T3  ' 0;   
+    }
+    100% {
+        font-variation-settings: 'T1  ' 0 , 'T2  ' 0, 'T3  ' 1;   
+    }
+}

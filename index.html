@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Fonts</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <h1>Variable Fonts Training</h1>
+
+    
+
+    <div class="form">
+
+        <div class="input-element">
+            <label for="password-input">Enter password</label>
+            <input type="password" name="password" id="password-input" placeholder="8 characters or more">
+        </div>
+
+        <div class="input-element">
+            <label for="password-input">Search list</label>
+            <input type="search" name="password" id="password-input" placeholder="8 characters or more">
+        </div>
+
+        <div class="input-element">
+            <label for="password-input">Find location</label>
+            <input type="text" name="password" id="password-input" placeholder="8 characters or more">
+        </div>
+
+        <div class="input-element">
+            <label for="password-input">Enter phone</label>
+            <input type="phone" name="password" id="password-input" placeholder="8 characters or more">
+        </div>
+
+    </div>
+
+    
+
+    <hr>
+
+    <div class="animation">🦉</div>
+
+    <!-- <div class="anicons">
+        ABCDEFGHIJKLMNOPQRSTUVWXabcdeghijkmnopqstuvwxyz0123456789.,;?!*
+    </div> -->
+
+    <script>
+        const passInputs = document.querySelectorAll('#password-input');
+
+        passInputs.forEach(passInput => {
+            passInput.oninput = () => {
+                if (passInput.value.length >= 8 ) passInput.parentElement.classList.add('correct')
+                else passInput.parentElement.classList.remove('correct')
+            }
+        });
+    </script>
+    
+</body>
+</html>
